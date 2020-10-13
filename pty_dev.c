@@ -42,8 +42,8 @@ int pty_open(char *sl_name)
 #if defined (HAVE_GETPT) && defined (HAVE_GRANTPT) && defined (HAVE_UNLOCKPT) && defined (HAVE_PTSNAME)
     char *ptyname;
 
-//    if((mr_fd=getpt()) < 0)		//oleg
-// 	return -1;
+    if((mr_fd=getpt()) < 0)
+ 	return -1;
     if(grantpt(mr_fd) != 0)
 	return -1;
     if(unlockpt(mr_fd) != 0)
